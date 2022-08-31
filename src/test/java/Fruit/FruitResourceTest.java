@@ -118,26 +118,6 @@ public class FruitResourceTest {
     }
 
     @Test
-    public void UpdateByIdNotExist() {
-        FruitDto dto = createDto();
-        FruitDto saved = given()
-                .contentType(ContentType.JSON)
-                .body(dto)
-                .post()
-                .then()
-                .statusCode(Response.Status.ACCEPTED.getStatusCode())
-                .extract().as(FruitDto.class);
-        assertThat(saved).isNotNull();
-        saved.setId(10L);
-        given()
-                .contentType(ContentType.JSON)
-                .body(saved)
-                .put("/{id}", 10L)
-                .then()
-                .statusCode(Response.Status.NOT_FOUND.getStatusCode());
-    }
-
-    @Test
     public void UpdateWithEmptyName() {
         FruitDto dto = createDto();
         FruitDto saved = given()

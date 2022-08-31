@@ -132,7 +132,7 @@ public class FruitResourceTest {
         given()
                 .contentType(ContentType.JSON)
                 .body(saved)
-                .put("/{id}", 10)
+                .put("/{id}", 10L)
                 .then()
                 .statusCode(Response.Status.NOT_FOUND.getStatusCode());
     }
